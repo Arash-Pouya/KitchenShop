@@ -1,0 +1,48 @@
+* {
+  /* direction: rtl; */
+  font-family: "Shabnam FD", sans-serif;
+}
+
+/* @font-face {} */
+
+@import url("https://v1.fontapi.ir/css/ShabnamFD");
+
+nav .container {
+  flex-direction: column;
+  direction: rtl;
+}
+.navbar-nav li {
+  margin-right: 30px;
+}
+.dropdown-menu {
+  border-radius: 10px;
+  text-align: center;
+  /* direction: rtl; */
+}
+
+#test {
+  /* background-color: red; */
+}
+.dropdown-submenu {
+  position: relative;
+  direction: rtl;
+}
+.dropdown-submenu > a:after {
+  content: "\f0da";
+  float: left;
+  border: none;
+  font-family: "FontAwesome";
+}
+
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  right: 100%;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+@media (min-width: 991px) {
+  .dropdown-menu {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+}
