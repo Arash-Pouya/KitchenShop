@@ -1,6 +1,7 @@
 * {
   /* direction: rtl; */
   font-family: "Shabnam FD", sans-serif;
+  /* font-family: "Muli", sans-serif; */
 }
 
 /* @font-face {} */
@@ -101,21 +102,33 @@ nav .container {
 }
 .hs__header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   width: 100%;
 }
-.hs__headline {
-  flex: 1;
+.text {
+  margin-bottom: 10px;
+  font-size: 30px;
+  border-bottom: 1px solid red;
 }
 .hs__arrows {
+  float: right;
   align-self: center;
+  background: #212121;
+  padding: 5px;
+  border-radius: 5px;
+}
+.hs__arrows a {
+  color: red;
 }
 .hs__arrows .arrow:before {
-  content: "";
+  content: " ";
   display: inline-block;
   vertical-align: middle;
   content: "";
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNSIgaGVpZ2h0PSI5IiB2aWV3Qm94PSIwIDAgMTUgOSI+Cgk8cGF0aCBmaWxsPSIjMzMzMzMzIiBkPSJNNy44NjcgOC41NzRsLTcuMjItNy4yMi43MDctLjcwOEw3Ljg2NyA3LjE2IDE0LjA1Ljk4bC43MDYuNzA3Ii8+Cjwvc3ZnPgo=");
   background-size: contain;
+  -webkit-filter: brightness(5);
   filter: brightness(5);
   width: 18px;
   height: 12px;
@@ -165,7 +178,7 @@ nav .container {
   margin: 10px 0;
 }
 .hs__item__subtitle {
-  color: #aaa;
+  color: w;
   display: block;
 }
 .hs__item__image__wrapper {
@@ -180,6 +193,7 @@ nav .container {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 5px;
 }
 @media only screen and (min-width: 990px) {
   .hs__wrapper {
@@ -211,10 +225,11 @@ nav .container {
   letter-spacing: 0.15px;
 } */
 #container {
-  max-width: 990px;
+  /* max-width: 100%; */
   padding: calc(10px * 2);
   margin: 0 auto;
-  background: #121212;
+  /* background: #121212; */
+  border-radius: 10px;
   mix-blend-mode: invert;
   position: relative;
 }
@@ -222,7 +237,8 @@ nav .container {
   content: "";
   width: 100vw;
   height: 100%;
-  background: #212121;
+  /* background: #212121; */
+  border-radius: 10px;
   position: absolute;
   left: 50%;
   top: 0;
@@ -239,5 +255,104 @@ ul {
   padding: 0;
   margin: 0;
 }
-
+.card-body {
+  direction: rtl;
+  text-align: center;
+  margin: auto;
+}
 /* //////// container-fluid CAROUSEL ////////// */
+
+/* ////////// Brand /////// */
+/* @import url("https://fonts.googleapis.com/css?family=Montserrat"); */
+
+#Brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+:root {
+  --marquee-width: 80vw;
+  --marquee-height: 20vh;
+  /* --marquee-elements: 12; */ /* defined with JavaScript */
+  --marquee-elements-displayed: 5;
+  --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
+  --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
+}
+
+.marquee {
+  width: var(--marquee-width);
+  height: var(--marquee-height);
+  /* background-color: #111; */
+  color: #eee;
+  overflow: hidden;
+  position: relative;
+}
+.marquee:before,
+.marquee:after {
+  position: absolute;
+  top: 0;
+  width: 10rem;
+  height: 100%;
+  content: "";
+  z-index: 1;
+}
+.marquee:before {
+  left: 0;
+}
+.marquee:after {
+  right: 0;
+}
+.marquee-content {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  animation: scrolling var(--marquee-animation-duration) linear infinite;
+}
+/* .marquee-content:hover {
+  animation-play-state: paused;
+} */
+@keyframes scrolling {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements)));
+  }
+}
+.marquee-content li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  flex-shrink: 0;
+  width: var(--marquee-element-width);
+  max-height: 100%;
+  font-size: calc(var(--marquee-height) * 3 / 4); /* 5rem; */
+  white-space: nowrap;
+}
+
+.marquee-content li img {
+  width: 90%;
+  /* height: 100%; */
+  border: 1px solid black;
+  border-radius: 10px;
+  /* margin-left: 2px; */
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
+  :root {
+    --marquee-width: 100vw;
+    --marquee-height: 16vh;
+    --marquee-elements-displayed: 3;
+  }
+  .marquee:before,
+  .marquee:after {
+    width: 5rem;
+  }
+}
+/* ////////// Brand /////// */
